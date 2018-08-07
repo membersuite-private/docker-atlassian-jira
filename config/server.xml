@@ -86,9 +86,7 @@
         ====================================================================================
         -->
         <!-- OPTIONAL Proxy Connector with https -->
-        <Connector port="8080" maxThreads="150" minSpareThreads="25" connectionTimeout="20000" enableLookups="false" maxHttpHeaderSize="8192" protocol="HTTP/1.1
-" useBodyEncodingForURI="true" redirectPort="8443" acceptCount="100" disableUploadTimeout="true" proxyName="jira.ef.network" proxyPort="443" scheme="https" secu
-re="true"/>
+        <Connector port="8080" maxThreads="150" minSpareThreads="25" connectionTimeout="20000" enableLookups="false" maxHttpHeaderSize="8192" protocol="HTTP/1.1" useBodyEncodingForURI="true" redirectPort="8443" acceptCount="100" disableUploadTimeout="true" proxyName="jira.ef.network" proxyPort="443" scheme="https" secure="true"/>
 
         <!--
             <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -148,8 +146,7 @@ re="true"/>
 
                  The output access log lies has the following fields :
 
-                 IP Request_Id User Timestamp  "HTTP_Method URL Protocol_Version" HTTP_Status_Code ResponseSize_in_Bytes RequestTime_In_Millis Referer User_Agen
-t ASESSIONID
+                 IP Request_Id User Timestamp  "HTTP_Method URL Protocol_Version" HTTP_Status_Code ResponseSize_in_Bytes RequestTime_In_Millis Referer User_Agent ASESSIONID
 
                  eg :
 
@@ -171,8 +168,7 @@ t ASESSIONID
 
             -->
             <Valve className="org.apache.catalina.valves.AccessLogValve"
-                   pattern="%a %{jira.request.id}r %{jira.request.username}r %t &quot;%m %U%q %H&quot; %s %b %D &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quo
-t; &quot;%{jira.request.assession.id}r&quot;"/>
+                   pattern="%a %{jira.request.id}r %{jira.request.username}r %t &quot;%m %U%q %H&quot; %s %b %D &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot; &quot;%{jira.request.assession.id}r&quot;"/>
 
         </Engine>
     </Service>
