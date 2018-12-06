@@ -7,6 +7,8 @@ ENV JIRA_VERSION  7.13.0
 
 ADD config/atlassian.crt     /root/atlassian.crt
 
+ADD config/atlassian.crt     /root/atlassian.crt
+
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
 RUN set -x \
