@@ -54,7 +54,7 @@
 
                    relaxedPathChars="[]|"
                    relaxedQueryChars="[]|{}^&#x5c;&#x60;&quot;&lt;&gt;"
-                  
+
                    maxThreads="150"
                    minSpareThreads="25"
                    connectionTimeout="20000"
@@ -89,7 +89,7 @@
         ====================================================================================
         -->
         <!-- OPTIONAL Proxy Connector with https -->
-        <Connector port="8080" maxThreads="150" minSpareThreads="25" connectionTimeout="20000" enableLookups="false" maxHttpHeaderSize="8192" protocol="HTTP/1.1" useBodyEncodingForURI="true" redirectPort="8443" acceptCount="100" disableUploadTimeout="true" proxyName="jira.ef.network" proxyPort="443" scheme="https" secure="true"/>
+        <Connector port="8080" relaxedPathChars="[]|" relaxedQueryChars="[]|{}^&#x5c;&#x60;&quot;&lt;&gt;" maxThreads="150" minSpareThreads="25" connectionTimeout="20000" enableLookups="false" maxHttpHeaderSize="8192" protocol="HTTP/1.1" useBodyEncodingForURI="true" redirectPort="8443" acceptCount="100" disableUploadTimeout="true" proxyName="jira.ef.network" proxyPort="443" scheme="https" secure="true"/>
 
         <!--
             <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
