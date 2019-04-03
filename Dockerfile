@@ -13,7 +13,7 @@ ADD config/atlassian.crt     /root/atlassian.crt
 # directory structure.
 RUN set -x \
     && keytool -import -alias atlassian -keystore /etc/ssl/certs/java/cacerts -file /root/atlassian.crt -storepass changeit -noprompt \
-    && echo "deb http://ftp.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list \
+    && echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list \
     && apt-get update --quiet \
     && apt-get install --quiet --yes --no-install-recommends xmlstarlet \
     && apt-get install --quiet --yes --no-install-recommends -t jessie-backports libtcnative-1 \
