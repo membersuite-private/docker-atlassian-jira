@@ -7,17 +7,11 @@ ENV JIRA_VERSION  8.3.0
 
 ADD config/atlassian.crt     /root/atlassian.crt
 
-ADD config/atlassian.crt     /root/atlassian.crt
-
 # Install Atlassian JIRA and helper tools and setup initial home
 # directory structure.
 RUN set -x \
+    && apk add --no-cache curl xmlstarlet bash ttf-dejavu libc6-compat \
     && keytool -import -alias atlassian -keystore /etc/ssl/certs/java/cacerts -file /root/atlassian.crt -storepass changeit -noprompt \
-    && echo "deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list \
-    && apt-get update --quiet \
-    && apt-get install --quiet --yes --no-install-recommends xmlstarlet \
-    && apt-get install --quiet --yes --no-install-recommends -t jessie-backports libtcnative-1 \
-    && apt-get clean \
     && mkdir -p                "${JIRA_HOME}" \
     && mkdir -p                "${JIRA_HOME}/caches/indexes" \
     && chmod -R 700            "${JIRA_HOME}" \
